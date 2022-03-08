@@ -85,6 +85,9 @@ class _SignIn extends State<SignInPage> {
           if (user != null) {
             Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const HomePage()));
           }
+          else{
+            _loading = false;
+          }
         });
       } on FirebaseAuthException catch(e){
         if (e.code == "wrong-password" || e.code == "no_email"){
